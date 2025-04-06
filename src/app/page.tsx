@@ -1,3 +1,4 @@
+"use client"
 import Companies from "@/components/Companies";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/Hero";
@@ -5,11 +6,20 @@ import OurApproach from "@/components/OurApproach";
 import RingCursor from "@/components/RingCursor";
 import OurServices from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
+
 import WhyWorkWithUs from "@/components/WhyWorkWithUs";
+import PageTornTransition from "@/components/PageTornAnimation";
+
+
 
 export default function Home() {
+
+
+
+
   return (
     <>
+    <PageTornTransition />
     <RingCursor />
       <section id="1">
         <HeroSection />

@@ -10,7 +10,8 @@ const NavLink: React.FC<{
   children: React.ReactNode;
   className?: string;
   hoverText?: string;
-}> = ({ href, children, className, hoverText }) => {
+  textColor: string;
+}> = ({ href, children, className, hoverText, textColor }) => {
   const [isHovered, setIsHovered] = useState(false);
   const displayHoverText = hoverText || children;
 
@@ -27,7 +28,7 @@ const NavLink: React.FC<{
             initial={{ y: 0 }}
             animate={{ y: isHovered ? -30 : 0 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="inline-block w-full"
+            className={`inline-block w-full ${textColor}`}
           >
             {children}
           </motion.div>
@@ -35,7 +36,7 @@ const NavLink: React.FC<{
             initial={{ y: 30 }}
             animate={{ y: isHovered ? 0 : 30 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="absolute left-0 inline-block w-full"
+            className={`absolute left-0 inline-block w-full ${textColor}`}
           >
             {displayHoverText}
           </motion.div>
@@ -51,6 +52,8 @@ const Navbar: React.FC = () => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [isScrolledUp, setIsScrolledUp] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  // Removed unused currentSectionId state
+  const [textColor, setTextColor] = useState('text-white');
 
   const navigationLinks = [
     { path: '/', label: 'Home', hoverText: 'Home' },
@@ -61,8 +64,41 @@ const Navbar: React.FC = () => {
 
   const isActive = (path: string): boolean => pathname === path;
 
-  // Scroll effect
+  // Detect which section is in view and update text color
   useEffect(() => {
+    const detectSection = () => {
+      // Get all sections with IDs
+      const sections = document.querySelectorAll('section[id]');
+      
+      // Find which section is currently most visible in the viewport
+      let currentSection = '';
+      let maxVisibility = 0;
+      
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        
+        // Calculate how much of the section is visible in the viewport (as a percentage)
+        const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+        const visibilityPercentage = visibleHeight > 0 ? visibleHeight / section.clientHeight : 0;
+        
+        if (visibilityPercentage > maxVisibility) {
+          maxVisibility = visibilityPercentage;
+          currentSection = section.id;
+        }
+      });
+      
+      // Removed setting currentSectionId as it is unused
+      
+      // Update text color based on section ID
+      if (['2', '4', '6'].includes(currentSection)) {
+        setTextColor('text-black');
+      } else {
+        setTextColor('text-white');
+      }
+    };
+
+    // Scroll handler that includes section detection
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const scrollingUp = currentScrollY < lastScrollY;
@@ -70,8 +106,13 @@ const Navbar: React.FC = () => {
       setShowNavbar(scrollingUp || currentScrollY < 10);
       setIsScrolledUp(scrollingUp && currentScrollY > 0);
       setLastScrollY(currentScrollY);
+      
+      detectSection();
     };
 
+    // Initial detection on mount
+    detectSection();
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
@@ -81,13 +122,13 @@ const Navbar: React.FC = () => {
       initial={{ y: 0 }}
       animate={{ y: showNavbar ? 0 : -100 }}
       transition={{ duration: 0.4 }}
-      className={`fixed top-0 left-0 right-0 w-full p-10 z-50 text-white p-4 
+      className={`fixed top-0 left-0 right-0 w-full p-10 z-50 ${textColor} p-4 
         ${isScrolledUp ? 'bg-transparent' : 'bg-transparent'}`}
     >
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
-        <NavLink href="/">
-          <span className="text-2xl text-[#E0D9CD] font-bold" style={{ fontFamily: 'aurora' }}>
+        <NavLink href="/" textColor={textColor}>
+          <span className={`text-2xl ${textColor === 'text-black' ? 'text-black' : 'text-[#E0D9CD]'} font-bold`} style={{ fontFamily: 'aurora' }}>
             NUVORAA
           </span>
         </NavLink>
@@ -121,7 +162,8 @@ const Navbar: React.FC = () => {
               key={link.path}
               href={link.path}
               hoverText={link.hoverText}
-              className={`text-lg ${isActive(link.path) ? 'text-white' : 'text-white'}`}
+              textColor={textColor}
+              className={`text-lg ${isActive(link.path) ? textColor : textColor}`}
             >
               {link.label}
             </NavLink>
@@ -129,7 +171,8 @@ const Navbar: React.FC = () => {
           <NavLink
             href="/contact"
             hoverText="Contact Us"
-            className="text-lg border-b-2 border-white transition-all duration-300"
+            textColor={textColor}
+            className={`text-lg border-b-2 ${textColor === 'text-black' ? 'border-black' : 'border-white'} transition-all duration-300`}
           >
             Get Offer Today
           </NavLink>
@@ -143,14 +186,15 @@ const Navbar: React.FC = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden flex flex-col absolute top-16 left-0 w-full bg-black py-4 px-4 space-y-4 z-50"
+              className={`md:hidden flex flex-col absolute top-16 left-0 w-full ${textColor === 'text-black' ? 'bg-white' : 'bg-black'} py-4 mt-10 px-4 space-y-4 z-50`}
             >
               {navigationLinks.map((link) => (
                 <NavLink
                   key={link.path}
                   href={link.path}
                   hoverText={link.hoverText}
-                  className={`text-lg ${isActive(link.path) ? 'text-orange-500' : 'text-white'}`}
+                  textColor={textColor}
+                  className={`text-lg ${isActive(link.path) ? 'text-orange-500' : textColor}`}
                 >
                   {link.label}
                 </NavLink>
@@ -158,7 +202,8 @@ const Navbar: React.FC = () => {
               <NavLink
                 href="/contact"
                 hoverText="Contact Us"
-                className="text-lg border-b-2 border-white hover:border-orange-500 transition-all duration-300"
+                textColor={textColor}
+                className={`text-lg border-b-2 ${textColor === 'text-black' ? 'border-black' : 'border-white'} hover:border-orange-500 transition-all duration-300`}
               >
                 Get Offer Today
               </NavLink>
