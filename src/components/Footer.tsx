@@ -23,16 +23,16 @@ const Footer = () => {
         <div className="w-full flex justify-between">
           {/* Left Links - Touching left edge */}
           <div className="flex flex-col space-y-4 text-sm pl-8">
-            <p className="cursor-pointer hover:text-orange-500 transition-colors">Home</p>
-            <p className="cursor-pointer hover:text-orange-500 transition-colors">Story</p>
-            <p className="cursor-pointer hover:text-orange-500 transition-colors">Work</p>
+            <p className="cursor-pointer  transition-colors">Home</p>
+            <p className="cursor-pointer  transition-colors">Story</p>
+            <p className="cursor-pointer  transition-colors">Work</p>
           </div>
 
           {/* Right Links - Touching right edge */}
           <div className="flex flex-col space-y-4 text-sm text-right pr-8">
-            <p className="cursor-pointer hover:text-orange-500 transition-colors">LinkedIn</p>
-            <p className="cursor-pointer hover:text-orange-500 transition-colors">Instagram</p>
-            <p className="cursor-pointer hover:text-orange-500 transition-colors">Facebook</p>
+            <p className="cursor-pointer  transition-colors">LinkedIn</p>
+            <p className="cursor-pointer  transition-colors">Instagram</p>
+            <p className="cursor-pointer  transition-colors">Facebook</p>
           </div>
         </div>
       </div>
