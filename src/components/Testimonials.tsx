@@ -13,7 +13,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({
   return (
     <section className="relative w-full">
       {/* Top Border */}
-         <div className="w-full relative z-10 bg-stone-100">
+         <div className="w-full relative z-10 bg-[#E0D9CD]">
              <Image
                src={topBorderImage}
                alt="Top Decorative Border"
@@ -28,7 +28,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({
            </div>
 
       {/* Main Content */}
-      <div className="w-full bg-stone-100 py-16 px-6 md:px-12 lg:px-20">
+      <div className="w-full bg-[#E0D9CD] py-16 px-6 md:px-12 lg:px-20">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-sm uppercase text-black mb-2 font-semibold">Testimonials</p>
           <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-12" style={{
@@ -67,7 +67,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({
       </div>
 
       {/* Bottom Border */}
-        <div className="w-full relative z-10 bg-stone-100">
+        <div className="w-full relative z-10 bg-[#E0D9CD]">
                     <Image
                       src={bottomBorderImage}
                       alt="Bottom Decorative Border"

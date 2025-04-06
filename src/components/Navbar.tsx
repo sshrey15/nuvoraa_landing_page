@@ -81,8 +81,8 @@ const Navbar: React.FC = () => {
       initial={{ y: 0 }}
       animate={{ y: showNavbar ? 0 : -100 }}
       transition={{ duration: 0.4 }}
-      className={`fixed top-0 left-0 right-0 w-full z-50 text-white p-4 
-        ${isScrolledUp ? 'bg-black/40' : 'bg-black'}`}
+      className={`fixed top-0 left-0 right-0 w-full p-10 z-50 text-white p-4 
+        ${isScrolledUp ? 'bg-black/40' : 'bg-transparent'}`}
     >
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
