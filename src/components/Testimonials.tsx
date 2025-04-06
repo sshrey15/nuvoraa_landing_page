@@ -64,13 +64,13 @@ const Testimonials: React.FC<TestimonialsProps> = ({
       </div>
 
       {/* Bottom Border */}
-      <div className="w-full relative">
+      <div className="w-full relative bg-transparent">
         <Image
           src={bottomBorderImage}
           alt="Bottom border"
           width={1920}
           height={200}
-          className="w-full h-auto mix-blend-multiply"
+          className="w-full h-auto mix-blend-multiply bg-transparent"
           style={{ display: 'block' }}
         />
       </div>
