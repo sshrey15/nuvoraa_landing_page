@@ -12,7 +12,7 @@ const OurApproach: React.FC<OurApproachProps> = ({
   topBorderImage,
   bottomBorderImage
 }) => {
-  // Animation variants
+  
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
     visible: {
@@ -70,7 +70,7 @@ const OurApproach: React.FC<OurApproachProps> = ({
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className={`flex flex-col ${isReverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 mb-16`}
+        className={`flex flex-col ${isReverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-center  gap-8 mb-16`}
       >
         {/* Image column */}
         <motion.div variants={fadeInUp} className="w-full md:w-1/2 relative">
@@ -90,7 +90,7 @@ const OurApproach: React.FC<OurApproachProps> = ({
         </motion.div>
         
         {/* Content column */}
-        <motion.div variants={fadeInUp} className="w-full md:w-1/2">
+        <motion.div variants={fadeInUp} className="w-full overflow-hidden md:w-1/2">
           <motion.h2 
             variants={fadeInUp}
             className="text-3xl font-black mb-4 tracking-tight"

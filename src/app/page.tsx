@@ -8,22 +8,39 @@ import WhyWorkWithUs from "@/components/WhyWorkWithUs";
 
 export default function Home() {
   return (
-  <>
-    <HeroSection/>
+    <>
+      <section id="1">
+        <HeroSection />
+      </section>
 
-    <WhyWorkWithUs topBorderImage="/pattern.svg" bottomBorderImage="/pattern2.svg" />
+      <section id="2">
+        <WhyWorkWithUs
+          topBorderImage="/pattern.svg"
+          bottomBorderImage="/pattern2.svg"
+        />
+      </section>
 
-    <Companies/>
+      <section id="3">
+        <Companies />
+      </section>
 
+      <section id="4">
+        <OurApproach
+          topBorderImage="/pattern.svg"
+          bottomBorderImage="/pattern2.svg"
+        />
+      </section>
 
-    <OurApproach topBorderImage="/pattern.svg" bottomBorderImage="/pattern2.svg" />
+      <section>
+        <OurServices />
+      </section>
 
+      <Testimonials
+        topBorderImage="/pattern.svg"
+        bottomBorderImage="/pattern2.svg"
+      />
 
-    <OurServices/>
-
-    <Testimonials topBorderImage="/pattern.svg" bottomBorderImage="/pattern2.svg" />
-
-    <Footer/>
-  </>
+      <Footer />
+    </>
   );
 }

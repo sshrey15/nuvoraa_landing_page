@@ -13,26 +13,46 @@ const OurServices: React.FC = () => {
 
   return (
     <section className="w-full bg-black text-white py-8 md:py-16 overflow-hidden">
-      {/* Header Content */}
       <div className="max-w-6xl mx-auto px-4 md:px-6 mb-8 md:mb-16">
-        <h3 className="text-center text-white text-lg md:text-xl mb-4">Our Services</h3>
-        
-        <h2 
+        {/* Title animation */}
+        <motion.h3
+          className="text-center text-white text-lg md:text-xl mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          Our Services
+        </motion.h3>
+
+        <motion.h2 
           className="text-4xl sm:text-5xl md:text-6xl text-center font-black mb-6 md:mb-8 leading-tight"
           style={{ 
             fontFamily: 'aurora',
             textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
             color: '#f0ebe3'
           }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
         >
           SMART STRATEGIES.<br />
           POWERFUL RESULTS.
-        </h2>
-        
-        <div className="w-full h-px bg-gray-600"></div>
+        </motion.h2>
+
+        {/* Animated separator line */}
+        <motion.div 
+          className="w-full h-px bg-gray-600"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          style={{ transformOrigin: "left" }}
+        />
       </div>
-      
-      {/* Full-width Services List with Framer Motion Animations */}
+
+      {/* Services List */}
       <div className="w-full space-y-4 md:space-y-6">
         {services.map((service, index) => (
           <ServiceStrip 
@@ -46,84 +66,82 @@ const OurServices: React.FC = () => {
   );
 };
 
-// Service Strip component using Framer Motion's viewport prop
-// ...existing imports and service data...
-
+// ServiceStrip with hover animation and background scale effect
 const ServiceStrip: React.FC<{
-    service: {
-      number: number;
-      name: string;
-      background: string;
-      textColor: string;
-    };
-    index: number;
-  }> = ({ service, index }) => {
-    const variants = {
-      hidden: { 
-        x: index % 2 === 0 ? 200 : -200, // Reduced animation distance for mobile
-        opacity: 0
-      },
-      visible: { 
-        x: 0,
-        opacity: 1,
-        transition: {
-          type: "spring",
-          damping: 30,
-          stiffness: 80,
-          duration: 0.6,
-          delay: index * 0.1
-        }
-      }
-    };
-  
-    return (
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }} // Reduced threshold for triggering animation
-        variants={variants}
-        className={`w-full ${service.background} py-4 sm:py-6 md:py-8`}
-      >
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
-            <motion.span 
-              className={`text-3xl sm:text-4xl md:text-6xl font-bold opacity-90 ${service.textColor}`}
-              style={{ 
-                fontFamily: 'aurora',
-                textShadow: '1px 1px 2px rgba(0,0,0,0.2)'
-              }}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ 
-                delay: index * 0.1 + 0.2,
-                duration: 0.4
-              }}
-            >
-              {service.number}.
-            </motion.span>
-            <motion.span 
-              className={`text-xl sm:text-2xl md:text-3xl font-bold tracking-wide ${service.textColor}`}
-              style={{ 
-                fontFamily: 'aurora',
-                textShadow: '1px 1px 2px rgba(0,0,0,0.2)'
-              }}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ 
-                delay: index * 0.1 + 0.3,
-                duration: 0.4
-              }}
-            >
-              {service.name}
-            </motion.span>
-          </div>
-        </div>
-      </motion.div>
-    );
+  service: {
+    number: number;
+    name: string;
+    background: string;
+    textColor: string;
   };
-  
-  
+  index: number;
+}> = ({ service, index }) => {
+  const variants = {
+    hidden: { 
+      x: index % 2 === 0 ? 200 : -200,
+      opacity: 0
+    },
+    visible: { 
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        damping: 30,
+        stiffness: 80,
+        duration: 0.6,
+        delay: index * 0.1
+      }
+    }
+  };
+
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      variants={variants}
+      whileHover={{ scale: 1.01 }}
+      transition={{ type: 'spring', stiffness: 100 }}
+      className={`w-full ${service.background} py-4 sm:py-6 md:py-8 transition-transform duration-200`}
+    >
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
+        <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
+          <motion.span 
+            className={`text-3xl sm:text-4xl md:text-6xl font-bold opacity-90 ${service.textColor}`}
+            style={{ 
+              fontFamily: 'aurora',
+              textShadow: '1px 1px 2px rgba(0,0,0,0.2)'
+            }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ 
+              delay: index * 0.1 + 0.2,
+              duration: 0.4
+            }}
+          >
+            {service.number}.
+          </motion.span>
+          <motion.span 
+            className={`text-xl sm:text-2xl md:text-3xl font-bold tracking-wide ${service.textColor}`}
+            style={{ 
+              fontFamily: 'aurora',
+              textShadow: '1px 1px 2px rgba(0,0,0,0.2)'
+            }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ 
+              delay: index * 0.1 + 0.3,
+              duration: 0.4
+            }}
+          >
+            {service.name}
+          </motion.span>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 export default OurServices;

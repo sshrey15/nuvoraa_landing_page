@@ -30,7 +30,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({
       {/* Main Content */}
       <div className="w-full bg-[#E0D9CD] py-16 px-6 md:px-12 lg:px-20">
         <div className="max-w-6xl mx-auto text-center">
-          <p className="text-sm uppercase text-black mb-2 font-semibold">Testimonials</p>
+          <p className="text-sm  text-black mb-20 font-semibold">(Testimonials)</p>
           <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-12" style={{
             fontFamily: 'aurora',
             textShadow: '1px 1px 0 rgba(0,0,0,0.2)',

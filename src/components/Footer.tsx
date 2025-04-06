@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="w-full bg-black text-[#e9dbc8] py-16 px-6 relative">
       {/* Center Content */}
       <div className="max-w-7xl mx-auto flex flex-col items-center justify-center text-center">
-        <p className="text-sm uppercase mb-2">Contact us</p>
+        <p className="text-sm  mb-20">(Contact us)</p>
         <h2
           className="text-3xl sm:text-4xl md:text-5xl font-black mb-4"
           style={{
