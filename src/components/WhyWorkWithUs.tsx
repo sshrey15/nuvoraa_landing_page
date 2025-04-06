@@ -66,9 +66,9 @@ const WhyWorkWithUs: React.FC<WhyWorkWithUsProps> = ({
         {/* Section Label */}
         <motion.h3
           variants={revealVariants}
-          className="text-center text-black text-xl mb-8"
+          className="text-center text-black text-xl mb-20"
         >
-          Why Work with us?
+          (Why Work with us?)
         </motion.h3>
 
         {/* Bold Statement */}

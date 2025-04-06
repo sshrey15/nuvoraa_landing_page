@@ -2,6 +2,7 @@ import Companies from "@/components/Companies";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/Hero";
 import OurApproach from "@/components/OurApproach";
+import RingCursor from "@/components/RingCursor";
 import OurServices from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
 import WhyWorkWithUs from "@/components/WhyWorkWithUs";
@@ -9,6 +10,7 @@ import WhyWorkWithUs from "@/components/WhyWorkWithUs";
 export default function Home() {
   return (
     <>
+    <RingCursor />
       <section id="1">
         <HeroSection />
       </section>
@@ -31,14 +33,18 @@ export default function Home() {
         />
       </section>
 
-      <section>
+      <section id="5">
         <OurServices />
       </section>
 
-      <Testimonials
-        topBorderImage="/pattern.svg"
-        bottomBorderImage="/pattern2.svg"
-      />
+<section id="6">
+<Testimonials
+
+topBorderImage="/pattern.svg"
+bottomBorderImage="/pattern2.svg"
+/>
+</section>
+     
 
       <Footer />
     </>

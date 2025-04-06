@@ -16,13 +16,13 @@ const OurServices: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 md:px-6 mb-8 md:mb-16">
         {/* Title animation */}
         <motion.h3
-          className="text-center text-white text-lg md:text-xl mb-4"
+          className="text-center text-white text-lg md:text-xl mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Our Services
+          (Our Services)
         </motion.h3>
 
         <motion.h2 

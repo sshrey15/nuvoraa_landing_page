@@ -183,9 +183,9 @@ const OurApproach: React.FC<OurApproachProps> = ({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-center text-black text-xl mb-12"
+            className="text-center text-black text-xl mb-20"
           >
-            Our Approach
+            (Our Approach)
           </motion.h3>
           
           {/* Render all sections with alternating layout */}
