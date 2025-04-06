@@ -15,7 +15,7 @@ const Footer = () => {
         >
           SEE <br className="hidden sm:block" /> WHAT <br className="hidden sm:block" /> GROWTH <br className="hidden sm:block" /> MEANS
         </h2>
-        <p className="text-sm mt-2">Lets Get Wild</p>
+       
       </div>
 
   {/* Bottom Links */}
