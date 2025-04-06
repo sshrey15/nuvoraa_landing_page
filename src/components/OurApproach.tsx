@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 
+
 interface OurApproachProps {
   topBorderImage: string;
   bottomBorderImage: string;
@@ -14,16 +15,19 @@ const OurApproach: React.FC<OurApproachProps> = ({
   return (
     <section className="relative w-full">
       {/* Top border pattern */}
-      <div className="w-full relative">
-        <Image
-          src={topBorderImage} 
-          alt="Decorative border" 
-          className="w-full h-auto"
-          width={1920}
-          height={200}
-          style={{ display: 'block' }}
-        />
-      </div>
+       <div className="w-full relative z-10 bg-stone-100">
+           <Image
+             src={topBorderImage}
+             alt="Top Decorative Border"
+             width={1920}
+             height={200}
+             className="w-full h-auto mix-blend-multiply select-none pointer-events-none"
+             style={{
+               display: 'block',
+               imageRendering: 'auto',
+             }}
+           />
+         </div>
       
       {/* Main content area */}
       <div className="w-full bg-stone-100 py-10 px-6 md:px-12 lg:px-20">
@@ -197,16 +201,19 @@ const OurApproach: React.FC<OurApproachProps> = ({
 
 
       {/* Bottom border pattern */}
-      <div className="w-full relative">
-        <Image
-          src={bottomBorderImage} 
-          alt="Decorative border" 
-          className="w-full h-auto"
-          style={{ display: 'block' }}
-          width={1920}
-          height={200}
-        />
-      </div>
+          <div className="w-full relative z-10 bg-stone-100">
+              <Image
+                src={bottomBorderImage}
+                alt="Bottom Decorative Border"
+                width={1920}
+                height={200}
+                className="w-full h-auto mix-blend-multiply select-none pointer-events-none"
+                style={{
+                  display: 'block',
+                  imageRendering: 'auto',
+                }}
+              />
+            </div>
     </section>
   );
 };

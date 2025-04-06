@@ -13,16 +13,19 @@ const Testimonials: React.FC<TestimonialsProps> = ({
   return (
     <section className="relative w-full">
       {/* Top Border */}
-      <div className="w-full relative">
-        <Image
-          src={topBorderImage}
-          alt="Top border"
-          width={1920}
-          height={200}
-          className="w-full h-auto"
-          style={{ display: 'block' }}
-        />
-      </div>
+         <div className="w-full relative z-10 bg-stone-100">
+             <Image
+               src={topBorderImage}
+               alt="Top Decorative Border"
+               width={1920}
+               height={200}
+               className="w-full h-auto mix-blend-multiply select-none pointer-events-none"
+               style={{
+                 display: 'block',
+                 imageRendering: 'auto',
+               }}
+             />
+           </div>
 
       {/* Main Content */}
       <div className="w-full bg-stone-100 py-16 px-6 md:px-12 lg:px-20">
@@ -64,16 +67,19 @@ const Testimonials: React.FC<TestimonialsProps> = ({
       </div>
 
       {/* Bottom Border */}
-      <div className="w-full relative bg-transparent">
-        <Image
-          src={bottomBorderImage}
-          alt="Bottom border"
-          width={1920}
-          height={200}
-          className="w-full h-auto mix-blend-multiply bg-transparent"
-          style={{ display: 'block' }}
-        />
-      </div>
+        <div className="w-full relative z-10 bg-stone-100">
+                    <Image
+                      src={bottomBorderImage}
+                      alt="Bottom Decorative Border"
+                      width={1920}
+                      height={200}
+                      className="w-full h-auto mix-blend-multiply select-none pointer-events-none"
+                      style={{
+                        display: 'block',
+                        imageRendering: 'auto',
+                      }}
+                    />
+                  </div>
     </section>
   );
 };
