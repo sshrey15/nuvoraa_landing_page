@@ -1,106 +1,172 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
+
+// NavLink Component with Text Slide-Up Animation
+const NavLink: React.FC<{ 
+  href: string; 
+  children: React.ReactNode;
+  className?: string;
+  hoverText?: string;
+}> = ({ href, children, className, hoverText }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const displayHoverText = hoverText || children;
+
+  return (
+    <Link href={href}>
+      <motion.div
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className={`relative overflow-hidden cursor-pointer ${className}`}
+        style={{ perspective: '1000px' }}
+      >
+        <div className="relative h-full overflow-hidden">
+          <motion.div
+            initial={{ y: 0 }}
+            animate={{ y: isHovered ? -30 : 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="inline-block w-full"
+          >
+            {children}
+          </motion.div>
+          <motion.div
+            initial={{ y: 30 }}
+            animate={{ y: isHovered ? 0 : 30 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="absolute left-0 inline-block w-full"
+          >
+            {displayHoverText}
+          </motion.div>
+        </div>
+      </motion.div>
+    </Link>
+  );
+};
 
 const Navbar: React.FC = () => {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
-  const isActive = (path: string): boolean => {
-    return pathname === path;
-  };
-  
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [isScrolledUp, setIsScrolledUp] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const navigationLinks = [
+    { path: '/', label: 'Home', hoverText: 'Home' },
+    { path: '/story', label: 'Story', hoverText: 'Story' },
+    { path: '/services', label: 'Services', hoverText: 'Services' },
+    { path: '/work', label: 'Work', hoverText: 'Work' },
+  ];
+
+  const isActive = (path: string): boolean => pathname === path;
+
+  // Scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollingUp = currentScrollY < lastScrollY;
+
+      setShowNavbar(scrollingUp || currentScrollY < 10);
+      setIsScrolledUp(scrollingUp && currentScrollY > 0);
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
   return (
-    <nav className="w-full bg-black text-white p-4">
+    <motion.nav
+      initial={{ y: 0 }}
+      animate={{ y: showNavbar ? 0 : -100 }}
+      transition={{ duration: 0.4 }}
+      className={`fixed top-0 left-0 right-0 w-full z-50 text-white p-4 
+        ${isScrolledUp ? 'bg-black/40' : 'bg-black'}`}
+    >
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
-        <div className="text-2xl font-bold">
-          <Link href="/">
-            <span className="cursor-pointer hover:text-orange-500 transition-colors duration-300" style={{fontFamily: 'aurora'}}>
-              NUVORAA
-            </span>
-          </Link>
-        </div>
-        
-        {/* Hamburger Menu Button */}
+        <NavLink href="/">
+          <span className="text-2xl text-[#E0D9CD] font-bold" style={{ fontFamily: 'aurora' }}>
+            NUVORAA
+          </span>
+        </NavLink>
+
+        {/* Hamburger Button */}
         <button 
-          className="md:hidden p-2 hover:text-orange-500 transition-colors duration-300"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden p-2" 
+          onClick={() => setIsMenuOpen(!isMenuOpen)} 
           aria-label="Toggle menu"
         >
-          <svg 
-            className="w-6 h-6 text-white" 
+          <motion.svg 
+            className="w-6 h-6" 
             fill="none" 
             stroke="currentColor" 
-            viewBox="0 0 24 24" 
-            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            animate={isMenuOpen ? { rotate: 180 } : { rotate: 0 }}
+            transition={{ duration: 0.3 }}
           >
             {isMenuOpen ? (
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M6 18L18 6M6 6l12 12"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M4 6h16M4 12h16M4 18h16"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             )}
-          </svg>
+          </motion.svg>
         </button>
-        
-        {/* Navigation Links */}
-        <div className={`
-          ${isMenuOpen ? 'flex' : 'hidden'} 
-          md:flex flex-col md:flex-row 
-          absolute md:relative 
-          top-16 md:top-0 
-          left-0 md:left-auto 
-          w-full md:w-auto 
-          bg-black md:bg-transparent 
-          py-4 md:py-0 
-          px-4 md:px-0 
-          space-y-4 md:space-y-0 
-          md:space-x-8
-          z-50
-        `}>
-          <Link href="/">
-            <span className={`cursor-pointer block md:inline transition-all duration-300 hover:text-orange-500 
-              ${isActive('/') ? 'bg-orange-600 px-4 py-2 hover:bg-orange-700' : ''}`}>
-              Home
-            </span>
-          </Link>
-          <Link href="/story">
-            <span className={`cursor-pointer block md:inline transition-all duration-300 hover:text-orange-500 
-              ${isActive('/story') ? 'bg-orange-600 px-4 py-2 hover:bg-orange-700' : ''}`}>
-              Story
-            </span>
-          </Link>
-          <Link href="/services">
-            <span className={`cursor-pointer block md:inline transition-all duration-300 hover:text-orange-500 
-              ${isActive('/services') ? 'bg-orange-600 px-4 py-2 hover:bg-orange-700' : ''}`}>
-              Services
-            </span>
-          </Link>
-          <Link href="/work">
-            <span className={`cursor-pointer block md:inline transition-all duration-300 hover:text-orange-500 
-              ${isActive('/work') ? 'bg-orange-600 px-4 py-2 hover:bg-orange-700' : ''}`}>
-              Work
-            </span>
-          </Link>
-          <Link href="/contact">
-            <span className="cursor-pointer block md:inline border-b border-white hover:border-orange-500 hover:text-orange-500 transition-all duration-300">
-              Get Offer Today
-            </span>
-          </Link>
+
+        {/* Desktop Nav Links */}
+        <div className="hidden md:flex md:flex-row md:space-x-8 items-center">
+          {navigationLinks.map((link) => (
+            <NavLink
+              key={link.path}
+              href={link.path}
+              hoverText={link.hoverText}
+              className={`text-lg ${isActive(link.path) ? 'text-white' : 'text-white'}`}
+            >
+              {link.label}
+            </NavLink>
+          ))}
+          <NavLink
+            href="/contact"
+            hoverText="Contact Us"
+            className="text-lg border-b-2 border-white transition-all duration-300"
+          >
+            Get Offer Today
+          </NavLink>
         </div>
+
+        {/* Mobile Nav Links */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden flex flex-col absolute top-16 left-0 w-full bg-black py-4 px-4 space-y-4 z-50"
+            >
+              {navigationLinks.map((link) => (
+                <NavLink
+                  key={link.path}
+                  href={link.path}
+                  hoverText={link.hoverText}
+                  className={`text-lg ${isActive(link.path) ? 'text-orange-500' : 'text-white'}`}
+                >
+                  {link.label}
+                </NavLink>
+              ))}
+              <NavLink
+                href="/contact"
+                hoverText="Contact Us"
+                className="text-lg border-b-2 border-white hover:border-orange-500 transition-all duration-300"
+              >
+                Get Offer Today
+              </NavLink>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
