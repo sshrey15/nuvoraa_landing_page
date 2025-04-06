@@ -1,7 +1,6 @@
 "use client"
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 
 const OurServices: React.FC = () => {
   const services = [
@@ -47,82 +46,84 @@ const OurServices: React.FC = () => {
   );
 };
 
-// Service Strip component with Framer Motion
+// Service Strip component using Framer Motion's viewport prop
+// ...existing imports and service data...
+
 const ServiceStrip: React.FC<{
-  service: {
-    number: number;
-    name: string;
-    background: string;
-    textColor: string;
-  };
-  index: number;
-}> = ({ service, index }) => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-    rootMargin: "-50px 0px"
-  });
-
-  const variants = {
-    hidden: { 
-      x: index % 2 === 0 ? 1000 : -1000,
-      opacity: 0
-    },
-    visible: { 
-      x: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        damping: 25,
-        stiffness: 100,
-        duration: 0.8,
-        delay: index * 0.1
+    service: {
+      number: number;
+      name: string;
+      background: string;
+      textColor: string;
+    };
+    index: number;
+  }> = ({ service, index }) => {
+    const variants = {
+      hidden: { 
+        x: index % 2 === 0 ? 200 : -200, // Reduced animation distance for mobile
+        opacity: 0
+      },
+      visible: { 
+        x: 0,
+        opacity: 1,
+        transition: {
+          type: "spring",
+          damping: 30,
+          stiffness: 80,
+          duration: 0.6,
+          delay: index * 0.1
+        }
       }
-    }
+    };
+  
+    return (
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }} // Reduced threshold for triggering animation
+        variants={variants}
+        className={`w-full ${service.background} py-4 sm:py-6 md:py-8`}
+      >
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
+          <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
+            <motion.span 
+              className={`text-3xl sm:text-4xl md:text-6xl font-bold opacity-90 ${service.textColor}`}
+              style={{ 
+                fontFamily: 'aurora',
+                textShadow: '1px 1px 2px rgba(0,0,0,0.2)'
+              }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ 
+                delay: index * 0.1 + 0.2,
+                duration: 0.4
+              }}
+            >
+              {service.number}.
+            </motion.span>
+            <motion.span 
+              className={`text-xl sm:text-2xl md:text-3xl font-bold tracking-wide ${service.textColor}`}
+              style={{ 
+                fontFamily: 'aurora',
+                textShadow: '1px 1px 2px rgba(0,0,0,0.2)'
+              }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ 
+                delay: index * 0.1 + 0.3,
+                duration: 0.4
+              }}
+            >
+              {service.name}
+            </motion.span>
+          </div>
+        </div>
+      </motion.div>
+    );
   };
-
-  return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      variants={variants}
-      className={`w-full ${service.background} py-6 sm:py-8 md:py-10`}
-    >
-      <div className="max-w-6xl mx-auto px-4 md:px-6 flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
-        <motion.span 
-          className={`text-4xl sm:text-5xl md:text-7xl font-bold opacity-90 ${service.textColor}`}
-          style={{ 
-            fontFamily: 'aurora',
-            textShadow: '1px 1px 2px rgba(0,0,0,0.2)'
-          }}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-          transition={{ 
-            delay: index * 0.1 + 0.3,
-            duration: 0.5
-          }}
-        >
-          {service.number}.
-        </motion.span>
-        <motion.span 
-          className={`text-2xl sm:text-3xl md:text-4xl font-bold tracking-wide ${service.textColor}`}
-          style={{ 
-            fontFamily: 'aurora',
-            textShadow: '1px 1px 2px rgba(0,0,0,0.2)'
-          }}
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ 
-            delay: index * 0.1 + 0.5,
-            duration: 0.5
-          }}
-        >
-          {service.name}
-        </motion.span>
-      </div>
-    </motion.div>
-  );
-};
+  
+  
 
 export default OurServices;
