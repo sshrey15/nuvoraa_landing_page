@@ -37,7 +37,7 @@ const HeroSection: React.FC = () => {
             {/* CTA Button */}
             <div className="px-2 md:px-0">
               <Link href="/services">
-                <span className="inline-block text-lg md:text-xl border-b-2 border-white pb-1 hover:border-orange-500 hover:text-orange-400 transition-colors cursor-pointer">
+                <span className="inline-block text-lg md:text-xl border-b-2 border-white pb-1 transition-colors cursor-pointer">
                   Explore Our Services
                 </span>
               </Link>

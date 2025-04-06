@@ -99,7 +99,7 @@ const WhyWorkWithUs: React.FC<WhyWorkWithUsProps> = ({
         {/* CTA */}
         <motion.div variants={revealVariants} className="text-center">
           <Link href="/story">
-            <span className="inline-block border-b-2 border-black pb-1 text-lg hover:border-orange-500 hover:text-orange-600 transition-colors cursor-pointer">
+            <span className="inline-block border-b-2 border-black pb-1 text-lg  transition-colors cursor-pointer">
               Know Our Story
             </span>
           </Link>

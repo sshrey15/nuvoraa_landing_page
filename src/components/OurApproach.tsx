@@ -185,7 +185,7 @@ const OurApproach: React.FC<OurApproachProps> = ({
             viewport={{ once: true }}
             className="text-center text-black text-xl mb-20"
           >
-            (Our Approach)
+            (Ready to lead the digital revolution ? Let&apos;s make it happen)
           </motion.h3>
           
           {/* Render all sections with alternating layout */}
