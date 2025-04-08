@@ -11,7 +11,8 @@ const NavLink: React.FC<{
   className?: string;
   hoverText?: string;
   textColor: string;
-}> = ({ href, children, className, hoverText, textColor }) => {
+  isOfferLink?: boolean;
+}> = ({ href, children, className, hoverText, textColor, isOfferLink }) => {
   const [isHovered, setIsHovered] = useState(false);
   const displayHoverText = hoverText || children;
 
@@ -41,6 +42,16 @@ const NavLink: React.FC<{
             {displayHoverText}
           </motion.div>
         </div>
+        
+        {/* Special underline animation for offer link */}
+        {isOfferLink && (
+          <motion.div 
+            className={`absolute bottom-0 left-0 h-0.5 ${textColor === 'text-black' ? 'bg-black' : 'bg-white'}`}
+            initial={{ width: '100%' }}
+            animate={{ width: isHovered ? '30%' : '100%' }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          />
+        )}
       </motion.div>
     </Link>
   );
@@ -52,7 +63,6 @@ const Navbar: React.FC = () => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [isScrolledUp, setIsScrolledUp] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
-  // Removed unused currentSectionId state
   const [textColor, setTextColor] = useState('text-white');
 
   const navigationLinks = [
@@ -87,8 +97,6 @@ const Navbar: React.FC = () => {
           currentSection = section.id;
         }
       });
-      
-      // Removed setting currentSectionId as it is unused
       
       // Update text color based on section ID
       if (['2', '4', '6'].includes(currentSection)) {
@@ -156,7 +164,7 @@ const Navbar: React.FC = () => {
         </button>
 
         {/* Desktop Nav Links */}
-        <div className="hidden md:flex md:flex-row md:space-x-8 items-center">
+        <div className="hidden md:flex md:flex-row md:space-x-20 items-center">
           {navigationLinks.map((link) => (
             <NavLink
               key={link.path}
@@ -172,7 +180,8 @@ const Navbar: React.FC = () => {
             href="/contact"
             hoverText="Contact Us"
             textColor={textColor}
-            className={`text-lg border-b-2 ${textColor === 'text-black' ? 'border-black' : 'border-white'} transition-all duration-300`}
+            className={`text-lg relative pb-1`}
+            isOfferLink={true}
           >
             Get Offer Today
           </NavLink>
@@ -203,7 +212,8 @@ const Navbar: React.FC = () => {
                 href="/contact"
                 hoverText="Contact Us"
                 textColor={textColor}
-                className={`text-lg border-b-2 ${textColor === 'text-black' ? 'border-black' : 'border-white'} hover:border-orange-500 transition-all duration-300`}
+                className={`text-lg relative pb-1`}
+                isOfferLink={true}
               >
                 Get Offer Today
               </NavLink>

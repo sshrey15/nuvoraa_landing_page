@@ -50,7 +50,7 @@ const OurApproach: React.FC<OurApproachProps> = ({
   const Section = ({ 
     title, 
     description, 
-    tags, 
+    
     imageSrc, 
     imageAlt, 
     isReverse = false, 
@@ -77,12 +77,12 @@ const OurApproach: React.FC<OurApproachProps> = ({
           <div className="relative">
             <motion.div
               variants={circleAppear}
-              className={`absolute ${isReverse ? '-right-8' : '-left-8'} ${index % 4 === 0 || index % 4 === 3 ? '-top-8' : '-bottom-8'} w-16 h-16 rounded-full bg-rose-300 opacity-80`}
+              className={`absolute ${isReverse ? '-right-8' : '-left-8'} ${index % 4 === 0 || index % 4 === 3 ? '-top-8' : '-bottom-8'} w-16 h-16 rounded-full bg-black opacity-80`}
             />
             <Image 
               src={imageSrc} 
               alt={imageAlt} 
-              className="w-full h-auto relative z-10 mix-blend-luminosity hover:mix-blend-normal transition-all duration-300"
+              className="w-full h-auto relative z-10 mix-blend-luminosity  transition-all duration-300"
               width={800}
               height={600}
             />
@@ -93,7 +93,7 @@ const OurApproach: React.FC<OurApproachProps> = ({
         <motion.div variants={fadeInUp} className="w-full overflow-hidden md:w-1/2">
           <motion.h2 
             variants={fadeInUp}
-            className="text-3xl font-black mb-4 tracking-tight"
+            className="text-5xl font-black mb-4 tracking-tight"
             style={{ fontFamily: 'aurora' }}
           >
             {title}
@@ -101,13 +101,13 @@ const OurApproach: React.FC<OurApproachProps> = ({
           <motion.p variants={fadeInUp} className="text-stone-600 mb-6">
             {description}
           </motion.p>
-          <motion.div variants={fadeInUp} className="flex flex-wrap gap-2">
+          {/* <motion.div variants={fadeInUp} className="flex flex-wrap gap-2">
             {tags.map((tag, i) => (
               <span key={i} className="px-4 py-1 bg-rose-300 rounded-full text-sm">
                 {tag}
               </span>
             ))}
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </motion.div>
     );
@@ -185,7 +185,7 @@ const OurApproach: React.FC<OurApproachProps> = ({
             viewport={{ once: true }}
             className="text-center text-black text-xl mb-20"
           >
-            (Ready to lead the digital revolution ? Let&apos;s make it happen)
+            (Our Expertise)
           </motion.h3>
           
           {/* Render all sections with alternating layout */}

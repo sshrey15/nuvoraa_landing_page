@@ -4,8 +4,8 @@ import Footer from "@/components/Footer";
 import HeroSection from "@/components/Hero";
 import OurApproach from "@/components/OurApproach";
 import RingCursor from "@/components/RingCursor";
-import OurServices from "@/components/Services";
-import Testimonials from "@/components/Testimonials";
+// import OurServices from "@/components/Services";
+// import Testimonials from "@/components/Testimonials";
 
 import WhyWorkWithUs from "@/components/WhyWorkWithUs";
 import PageTornTransition from "@/components/PageTornAnimation";
@@ -43,7 +43,7 @@ export default function Home() {
         />
       </section>
 
-      <section id="5">
+      {/* <section id="5">
         <OurServices />
       </section>
 
@@ -53,7 +53,7 @@ export default function Home() {
 topBorderImage="/pattern.svg"
 bottomBorderImage="/pattern2.svg"
 />
-</section>
+</section> */}
      
 
       <Footer />

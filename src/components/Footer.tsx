@@ -15,24 +15,28 @@ const Footer = () => {
         >
           SEE <br className="hidden sm:block" /> WHAT <br className="hidden sm:block" /> GROWTH <br className="hidden sm:block" /> MEANS
         </h2>
-       
+        
+        {/* Centered text below the heading */}
+        <p className="text-base sm:text-lg mt-4 italic">
+          — Ready to lead the digital revolution ? Let&apos;s make it happen —
+        </p>
       </div>
 
-  {/* Bottom Links */}
-  <div className="absolute bottom-16 w-full left-0">
+      {/* Bottom Links */}
+      <div className="absolute bottom-16 w-full left-0">
         <div className="w-full flex justify-between">
           {/* Left Links - Touching left edge */}
           <div className="flex flex-col space-y-4 text-sm pl-8">
-            <p className="cursor-pointer  transition-colors">Home</p>
-            <p className="cursor-pointer  transition-colors">Story</p>
-            <p className="cursor-pointer  transition-colors">Work</p>
+            <p className="cursor-pointer transition-colors">Home</p>
+            <p className="cursor-pointer transition-colors">Story</p>
+            <p className="cursor-pointer transition-colors">Work</p>
           </div>
 
           {/* Right Links - Touching right edge */}
           <div className="flex flex-col space-y-4 text-sm text-right pr-8">
-            <p className="cursor-pointer  transition-colors">LinkedIn</p>
-            <p className="cursor-pointer  transition-colors">Instagram</p>
-            <p className="cursor-pointer  transition-colors">Facebook</p>
+            <p className="cursor-pointer transition-colors">LinkedIn</p>
+            <p className="cursor-pointer transition-colors">Instagram</p>
+            <p className="cursor-pointer transition-colors">Facebook</p>
           </div>
         </div>
       </div>

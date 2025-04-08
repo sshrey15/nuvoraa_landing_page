@@ -14,9 +14,9 @@ const Companies: React.FC = () => {
 
   return (
     <div className="w-full bg-black py-16 overflow-hidden">
-      <div className="mb-20">
+      {/* <div className="mb-20">
         <h3 className="text-center text-white text-xl">(Trusted By Industry Leaders)</h3>
-      </div>
+      </div> */}
       
       <div className="relative w-full">
         {/* Gradient Overlay - Left */}
