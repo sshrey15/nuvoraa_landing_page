@@ -46,14 +46,28 @@ const HeroSection: React.FC = () => {
 
         {/* Content Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center">
-          {/* Image/Empty Space with dynamic height matching text content */}
+          {/* Video Container - replacing the white box */}
           <div 
-            className="bg-white rounded-lg w-full"
+            className="w-full relative rounded-lg overflow-hidden"
             style={{ 
               height: textHeight > 0 ? `${textHeight}px` : 'auto',
-              minHeight: '200px' // Fallback minimum height
+              minHeight: '200px'
             }}
-          ></div>
+          >
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src="/videos/v1.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            
+            {/* Optional overlay for better text contrast */}
+            <div className="absolute inset-0 bg-black/20"></div>
+          </div>
 
           {/* Text Content */}
           <div ref={textContainerRef} className="space-y-6 md:space-y-8">

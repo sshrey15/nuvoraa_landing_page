@@ -164,14 +164,14 @@ const Navbar: React.FC = () => {
         </button>
 
         {/* Desktop Nav Links */}
-        <div className="hidden md:flex md:flex-row md:space-x-20 items-center">
+        <div className="hidden md:flex md:flex-row md:space-x-10  items-center">
           {navigationLinks.map((link) => (
             <NavLink
               key={link.path}
               href={link.path}
               hoverText={link.hoverText}
               textColor={textColor}
-              className={`text-lg ${isActive(link.path) ? textColor : textColor}`}
+              className={`text-lg  ${isActive(link.path) ? textColor : textColor}`}
             >
               {link.label}
             </NavLink>
@@ -180,7 +180,7 @@ const Navbar: React.FC = () => {
             href="/contact"
             hoverText="Contact Us"
             textColor={textColor}
-            className={`text-lg relative pb-1`}
+            className={`text-lg ml-20 relative pb-1`}
             isOfferLink={true}
           >
             Get Offer Today
