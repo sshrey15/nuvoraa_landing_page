@@ -136,7 +136,7 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <NavLink href="/" textColor={textColor}>
-          <span className={`text-2xl ${textColor === 'text-black' ? 'text-black' : 'text-[#E0D9CD]'} font-bold`} style={{ fontFamily: 'aurora' }}>
+          <span className={`text-2xl ${textColor === 'text-black' ? 'text-black' : 'text-[#E0D9CD]'} font-bold`} style={{ fontFamily: 'peckham' }}>
             NUVORAA
           </span>
         </NavLink>

@@ -28,7 +28,7 @@ const OurServices: React.FC = () => {
         <motion.h2 
           className="text-4xl sm:text-5xl md:text-6xl text-center font-black mb-6 md:mb-8 leading-tight"
           style={{ 
-            fontFamily: 'aurora',
+            fontFamily: 'peckham',
             textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
             color: '#f0ebe3'
           }}

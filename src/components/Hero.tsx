@@ -35,7 +35,7 @@ const HeroSection: React.FC = () => {
           <h1
             className="text-[10vw] md:text-[8vw] mt-20 font-bold text-[#E0D9CD] tracking-wider text-center w-full px-2 md:px-4"
             style={{
-              fontFamily: "aurora",
+              fontFamily: "peckham",
               filter: "drop-shadow(2px 2px 0px rgba(0,0,0,0.2))",
               textShadow: "2px 2px 0px rgba(0,0,0,0.5)",
             }}

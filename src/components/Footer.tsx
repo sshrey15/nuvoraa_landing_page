@@ -9,7 +9,7 @@ const Footer = () => {
         <h2
           className="text-3xl sm:text-4xl md:text-6xl font-black mb-4"
           style={{
-            fontFamily: 'aurora',
+            fontFamily: 'Peckham',
             textShadow: '1px 1px 0 rgba(0,0,0,0.3)',
           }}
         >

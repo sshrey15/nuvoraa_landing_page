@@ -76,7 +76,7 @@ const WhyWorkWithUs: React.FC<WhyWorkWithUsProps> = ({
           <h2
             className="text-4xl md:text-5xl lg:text-6xl font-black text-center tracking-tight leading-tight"
             style={{
-              fontFamily: 'aurora',
+              fontFamily: 'peckham',
               textShadow: '1px 1px 0px rgba(0,0,0,0.2)',
               letterSpacing: '-0.02em',
             }}

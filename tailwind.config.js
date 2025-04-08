@@ -8,7 +8,7 @@ module.exports = {
     theme: {
       extend: {
         fontFamily: {
-          aurora: ['aurora', 'sans-serif']
+          peckham: ['peckham', 'sans-serif']
         }
       },
     },

@@ -95,7 +95,7 @@ const OurApproach: React.FC<OurApproachProps> = ({
             variants={fadeInUp}
             className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 tracking-tight"
 
-            style={{ fontFamily: 'aurora' }}
+            style={{ fontFamily: 'peckham' }}
           >
             {title}
           </motion.h2>
