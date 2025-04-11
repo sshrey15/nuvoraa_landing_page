@@ -10,6 +10,7 @@ import RingCursor from "@/components/RingCursor";
 
 import WhyWorkWithUs from "@/components/WhyWorkWithUs";
 import PageTornTransition from "@/components/PageTornAnimation";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [isPlaying, setIsPlaying] = useState(true);
@@ -34,10 +35,10 @@ export default function Home() {
         <HeroSection />
       </section>
 
-      <section id="video-section" className="relative w-full h-screen bg-black overflow-hidden group">
+      <section id="video-section" className="relative w-full py-20 bg-black overflow-hidden group flex justify-center items-center">
         <video 
           ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover opacity-50"
+          className="w-[80vw] h-[45vw] rounded max-w-5xl border-8 border-[#E0D9CD] object-cover"
           autoPlay
           loop
           muted
@@ -46,8 +47,8 @@ export default function Home() {
           <source src="/videos/v2.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        
-        {/* Play/Pause Button - Centered */}
+
+        {/* Play/Pause Button - Centered over video */}
         <div className="absolute inset-0 flex items-center justify-center">
           <button 
             onClick={togglePlayPause}
@@ -55,13 +56,13 @@ export default function Home() {
             aria-label={isPlaying ? "Pause video" : "Play video"}
           >
             {isPlaying ? (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 md:h-10 md:w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <rect x="6" y="4" width="4" height="16" fill="currentColor" />
-                <rect x="14" y="4" width="4" height="16" fill="currentColor" />
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 md:h-10 md:w-10 text-white" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="6" y="4" width="4" height="16" />
+                <rect x="14" y="4" width="4" height="16" />
               </svg>
             ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 md:h-10 md:w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <polygon points="5,3 19,12 5,21" fill="currentColor" />
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 md:h-10 md:w-10 text-white" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5,3 19,12 5,21" />
               </svg>
             )}
           </button>
@@ -97,6 +98,8 @@ topBorderImage="/pattern.svg"
 bottomBorderImage="/pattern2.svg"
 />
 </section> */}
+
+<Footer/>
      
       
     </>

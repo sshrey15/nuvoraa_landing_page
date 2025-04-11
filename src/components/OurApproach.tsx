@@ -118,35 +118,35 @@ const OurApproach: React.FC<OurApproachProps> = ({
   const sections = [
     {
       title: "POWER HOUSE\nPERFORMANCE MARKETING",
-      description: "We dont just run campaigns—we build marketing machines that crush the competition. Backed by AI-driven precision, real-time optimization, and data-fueled strategies, we deliver unstoppable growth and maximum ROI. No fluff. No wasted spend. Just pure performance at full throttle.",
+      description: "We don’t just run campaigns—we build marketing machines that crush the competition. Backed by AI-driven precision, real-time optimization, and data-fueled strategies, we deliver unstoppable growth and maximum ROI. No fluff. No wasted spend. Just pure performance at full throttle. Let’s Dominate!",
       tags: ["Growth Strategy", "Ad Campaigns", "CRO Specialists"],
       imageSrc: "/images/r1.png",
       imageAlt: "Power House Performance Marketing"
     },
     {
       title: "NO-MERCY SEO",
-      description: "We dont play fair—we play to win. While others chase rankings, we obliterate the competition with precision, power, and a forward strategy. We SEO to pulverize, relentless, and built for total search engine domination. No shortcuts. No compromises. Just brutal efficiency that puts you at the top—and keeps you there.",
+      description: "We don’t play fair—we play to win. While others chase rankings, we obliterate the competition with precision, power, and AI-driven strategy. Our SEO is ruthless, relentless, and built for total search engine domination. No shortcuts. No compromises. Just brutal efficiency that puts you at the top—and keeps you there.",
       tags: ["Research", "SEO"],
       imageSrc: "/images/r2.png",
       imageAlt: "No-Mercy SEO"
     },
     {
       title: "MAGNETIC SMM",
-      description: "We dont chase attention—we command it. With AI-driven precision and unstoppable strategy, we turn brands into irresistible forces that dominate every feed. Engage. Influence. Convert. Ignite movements, create die-hard followers, and turn engagement into unstoppable growth.",
+      description: "We don’t chase attention—we command it. With AI-driven precision and unstoppable strategy, we turn brands into irresistible forces that dominate every feed. Engage. Influence. Convert. Ignite movements, create die-hard followers, and turn engagement into unstoppable growth.",
       tags: ["Performance", "SMM"],
       imageSrc: "/images/r3.png",
       imageAlt: "Magnetic SMM"
     },
     {
-      title: "DIGITAL\nDOMINATION",
-      description: "We orchestrate comprehensive digital takeovers that leave no stone unturned. From cutting-edge web development to conversion-focused design, our full-spectrum approach ensures your brand dominates every digital touchpoint. We build, optimize, and scale digital ecosystems that crush competition and drive unstoppable growth.",
+      title: "UNRIVALLED WEBSITE\nDESIGN AND DEVELOPMENT",
+      description: "We don't just build websites—we create AI-powered digital powerhouses. Stunning design, flawless performance, and unrivaled impact. With intelligent automation, predictive analytics, and adaptive user experiences, we craft websites that think, learn, and evolve. Every pixel is precision-engineered, every interaction optimized through data-driven insights. From hyper-personalization to seamless automation, we harness the power of AI to give your brand an unbeatable edge. The future of web design is smart, and we make it happen.",
       tags: ["Web Development", "UI/UX", "CRO"],
       imageSrc: "/images/r4.png",
       imageAlt: "Digital Domination"
     },
     {
-      title: "BRAND\nWARFARE",
-      description: "In the battlefield of brands, we create warriors that stand apart. Our brand strategy combines psychological triggers, market intelligence, and creative firepower to forge unforgettable brand experiences. We dont just position brands—we create market legends that dominate mindshare and crush recall.",
+      title: "Jaw Dropping Video Production",
+      description: "From high-energy brand films to immersive storytelling, we craft videos that demand attention and leave a lasting impression. Every frame is designed for maximum engagement, every second engineered for impact. Whether it's a powerful commercial, a viral campaign, or a sleek corporate production, we turn ideas into visual masterpieces that set you apart. When only the best will do, we deliver.",
       tags: ["Brand Strategy", "Identity", "Design"],
       imageSrc: "/images/r5.png",
       imageAlt: "Brand Warfare"

@@ -1,6 +1,9 @@
-import React from 'react';
+"use client"
+import React,{useState} from 'react';
+import { motion } from "framer-motion";
 
 const Footer = () => {
+   const [isHovered, setIsHovered] = useState(false);
   return (
     <footer className="w-full bg-black text-[#e9dbc8] py-16 px-6 relative">
       {/* Main Content */}
@@ -14,9 +17,20 @@ const Footer = () => {
         </h2>
         
         {/* Centered text below the heading */}
-        <p className="text-base sm:text-lg mt-4 italic">
-          — Ready to lead the digital revolution ? Let&apos;s make it happen —
-        </p>
+        <motion.div className=
+        " relative inline-block mt-6 text-lg md:text-xl pb-1"
+
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        >
+                  <span>Ready to lead the digital revolution? Let’s make it happen.</span>
+                  <motion.div
+                    className="absolute bottom-0 left-0 h-0.5 bg-white"
+                    initial={{ width: "100%" }}
+                    animate={{ width: isHovered ? "30%" : "100%" }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  />
+                </motion.div>
       </div>
 
       {/* Bottom Links */}

@@ -33,11 +33,12 @@ const HeroSection: React.FC = () => {
         {/* Logo */}
         <div className="mt-8 md:mt-16 mb-12 md:mb-16 flex justify-center items-center">
           <h1
-            className="text-[10vw] md:text-[10vw] mt-20  text-[#E0D9CD] tracking-wider text-center w-full px-2 md:px-4"
+            className="text-[10vw] md:text-[10vw] mt-20  text-[#E0D9CD] text-center "
             
           >
             NUVORAA
           </h1>
+          
         </div>
 
         {/* Content Grid */}
@@ -67,11 +68,8 @@ const HeroSection: React.FC = () => {
 
           {/* Text Content */}
           <div ref={textContainerRef} className="space-y-6 md:space-y-8">
-            <p className="text-lg sm:text-xl md:text-2xl font-medium leading-relaxed px-2 md:px-0">
-              At Nuvoraa, we create trends, not follow them. With AI-driven
-              intelligence, we craft data-backed strategies that innovate,
-              automate, and accelerate. No guesswork—just smarter marketing with
-              real results.
+            <p className="text-md sm:text-xl md:text-xl font-medium leading-relaxed px-2 md:px-0">
+            At Nuvoraa, we don’t follow trends—we create them. Powered by AI-driven intelligence, we craft data-backed strategies that Innovate. Automate. Accelerate. From predictive analytics to precision targeting, we optimize every touchpoint for maximum impact. No guesswork. No wasted effort. Just smarter marketing that delivers real results.
             </p>
 
             {/* CTA Button with line animation */}

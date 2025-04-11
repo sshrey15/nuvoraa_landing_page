@@ -136,7 +136,7 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <NavLink href="/" textColor={textColor}>
-          <h1 className={`text-2xl ${textColor === 'text-black' ? 'text-black' : 'text-[#E0D9CD]'} `} >
+          <h1 className={`text-lg ${textColor === 'text-black' ? 'text-black' : 'text-[#E0D9CD]'} `} >
             NUVORAA
           </h1>
         </NavLink>
@@ -164,14 +164,14 @@ const Navbar: React.FC = () => {
         </button>
 
         {/* Desktop Nav Links */}
-        <div className="hidden md:flex md:flex-row md:space-x-10  items-center">
+        <div className="hidden md:flex md:flex-row md:space-x-2   items-center">
           {navigationLinks.map((link) => (
             <NavLink
               key={link.path}
               href={link.path}
               hoverText={link.hoverText}
               textColor={textColor}
-              className={`text-lg ml-10  ${isActive(link.path) ? textColor : textColor}`}
+              className={`text-sm ml-10  ${isActive(link.path) ? textColor : textColor}`}
             >
               {link.label}
             </NavLink>
@@ -180,7 +180,7 @@ const Navbar: React.FC = () => {
             href="/contact"
             hoverText="Contact Us"
             textColor={textColor}
-            className={`text-lg ml-20 relative pb-1`}
+            className={`text-sm ml-30 relative pb-1`}
             isOfferLink={true}
           >
             Get Offer Today

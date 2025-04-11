@@ -2,82 +2,84 @@
 // Example usage in a page component
 import MarketingServices from './components/screamSection';
 import { motion } from 'framer-motion';
+import Footer from "./components/creamFooter"
 
 export default function ServicesPage() {
   const seoServices = [
     {
-      title: "REVENUE DRIVEN ECOMMERCE",
-      description: "Boost sales and profitability with intelligent AI-driven strategies that optimize conversions, personalize customer experiences, and drive scalable growth."
+      title: "E-commerce\nSEO",
+      description: "Improve product rankings, enhance user experience, and increase revenue with tailored SEO strategies for online stores."
     },
     {
-      title: "AI DRIVEN LEAD GENERATION",
-      description: "Harness AI-powered insights to attract, qualify, and convert high-value leads with precision and efficiency."
+      title: "SEO for Businesses",
+      description: "Strengthen your brand’s digital presence with SEO solutions that generate leads, boost conversions, and maximize ROI."
     },
     {
-      title: "TARGET BRAND AWARENESS",
-      description: "Make your brand unforgettable with strategic exposure and meaningful audience connections."
+      title: "Technical SEO",
+      description: "Optimize crawlability, indexability, site speed, and structured data to enhance search rankings and user experience."
     },
     {
-      title: "HIGH INTENT APP INSTALLS",
-      description: "Drive installs that go beyond downloads—focus on users who take meaningful actions and contribute to your growth."
+      title: "Backlink and Authority Building",
+      description: "Boost your website’s credibility and rankings with high-quality backlinks, strategic outreach, and authoritative link-building techniques. "
     }
   ];
 
   const webDevServices = [
     {
-      title: "WEBSITE DEVELOPMENT",
-      description: "Custom-built, high-performance websites that deliver exceptional user experiences and convert visitors into customers."
-    },
-    {
-      title: "E-COMMERCE SOLUTIONS",
-      description: "Scalable online stores with seamless checkout processes, inventory management, and payment integrations."
-    },
-    {
-      title: "CMS IMPLEMENTATION",
-      description: "User-friendly content management systems that empower your team to update content without technical assistance."
-    },
-    {
-      title: "WEBSITE MAINTENANCE",
-      description: "Ongoing support, security updates, and performance optimization to keep your digital presence running smoothly."
-    }
+        title: "Social Media Strategy",
+        description: "Leverage insights, trends, and audience behavior to create a compelling and results-driven social presence."
+      },
+      {
+        title: "Profile Optimization",
+        description: "Improve brand perception and discoverability with a professionally optimized profile tailored for your audience."
+      },
+      {
+        title: "Influencer Collaboration & Partnerships",
+        description: "Connecting with the right influencers to amplify your brand's message, boost credibility, and drive conversions."
+      },
+      {
+        title: "Reputation Management",
+        description: "Monitoring brand mentions, handling reviews, and maintaining a positive brand image."
+      }
   ];
   
   const brandingServices = [
     {
-      title: "BRAND STRATEGY",
-      description: "Develop a cohesive brand identity that resonates with your target audience and differentiates you from competitors."
-    },
-    {
-      title: "VISUAL IDENTITY",
-      description: "Create compelling logos, color palettes, and design systems that communicate your brand's values and personality."
-    },
-    {
-      title: "BRAND MESSAGING",
-      description: "Craft a distinctive voice and messaging framework that connects with your audience across all touchpoints."
-    },
-    {
-      title: "BRAND GUIDELINES",
-      description: "Comprehensive documentation to ensure consistent application of your brand across all marketing materials."
-    }
+        title: "UI/UX Design",
+        description: "Create intuitive, visually stunning, and user-friendly digital experiences through seamless interface design, user research, and interactive prototyping to enhance engagement and conversions."
+      },
+      {
+        title: "Customised Website",
+        description: "Develop a tailor-made website designed to fit your brand's unique needs, ensuring seamless functionality, scalability, and a user-centric experience for maximum impact."
+      },
+      {
+        title: "Landing Page Design",
+        description: "Craft high-converting landing pages with compelling visuals, persuasive copy, and optimized layouts to drive engagement, lead generation, and sales."
+      },
+      {
+        title: "Custom Web Applications",
+        description: "Develop scalable, high-performance web applications tailored to your business needs, integrating advanced functionality, seamless user experience, and secure architecture."
+      }    
   ];
   
   const advertisingServices = [
     {
-      title: "PPC MANAGEMENT",
-      description: "Data-driven paid search campaigns that maximize ROI through strategic keyword targeting and continuous optimization."
-    },
-    {
-      title: "DISPLAY ADVERTISING",
-      description: "Visual ad campaigns that capture attention and drive engagement across relevant websites and platforms."
-    },
-    {
-      title: "REMARKETING",
-      description: "Targeted campaigns that re-engage visitors who have shown interest in your products or services."
-    },
-    {
-      title: "ANALYTICS & REPORTING",
-      description: "Comprehensive tracking and analysis to measure performance and inform data-backed optimization decisions."
-    }
+        title: "Ad Films",
+        description: "Create compelling, high-impact advertisement films that capture attention, tell your brand story, and drive engagement across digital and broadcast platforms."
+      },
+      {
+        title: "Corporate AV",
+        description: "Professionally crafted corporate audiovisual content that showcases your brand’s vision, values, and achievements through engaging storytelling and high-quality production."
+      },
+      {
+        title: "ABCD-led Storytelling",
+        description: "A strategic narrative framework that ensures impactful and engaging communication by focusing on four key elements: Attract, Brand, Connect and Direct"
+      },
+      {
+        title: "Promotional Video Creation",
+        description: "From product launches to brand storytelling, our expertly crafted videos are designed to captivate, inspire, and drive action whether for social media, websites, or ad campaigns"
+  
+      }
   ];
 
   // Animation variants for the first section
@@ -117,20 +119,20 @@ export default function ServicesPage() {
 
   const socialMediaServices = [
     {
-      title: "CONTENT STRATEGY",
-      description: "Develop engaging content calendars that resonate with your audience and drive meaningful engagement."
+      title: "Revenue-Driven Ecommerce",
+      description: "Boost sales and profitability with intelligent AI-driven strategies that optimize conversions, personalize customer experiences, and drive scalable growth"
     },
     {
-      title: "PAID SOCIAL CAMPAIGNS",
-      description: "Strategic ad placement and optimization across social platforms to maximize ROI and reach."
+      title: "AI-Driven Lead Generation",
+      description: "Harness AI-powered insights to attract, qualify, and convert high-value leads with precision and efficiency"
     },
     {
-      title: "COMMUNITY MANAGEMENT",
-      description: "Build and nurture an active community around your brand with consistent and authentic interactions."
+      title: "Targeted Brand Awareness",
+      description: "Make your brand unforgettable with strategic exposure and meaningful audience connections."
     },
     {
-      title: "ANALYTICS & REPORTING",
-      description: "Comprehensive performance tracking with actionable insights to continuously improve your social presence."
+      title: "High Intent App Installs",
+      description: "Drive installs that go beyond downloads—focus on users who take meaningful actions."
     }
   ];
 
@@ -148,12 +150,10 @@ export default function ServicesPage() {
             className="mb-8 mt-40 md:mb-16 "
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight text-white font-peckham">
-              SOCIAL MEDIA MARKETING
+            Performance Marketing
             </h2>
             
-            <p className="mt-2 md:mt-4 text-lg md:text-xl text-white opacity-80">
-              Build your brand presence across platforms
-            </p>
+            
           </motion.div>
 
           {/* Services Grid */}
@@ -200,8 +200,7 @@ export default function ServicesPage() {
       
       {/* Black component third - no borders */}
       <MarketingServices
-        mainTitle="WEB DEVELOPMENT"
-        subTitle="Custom digital experiences that convert"
+        mainTitle="Social Media Management"
         backgroundColor="bg-black" 
         textColor="text-white"
         services={webDevServices}
@@ -209,8 +208,7 @@ export default function ServicesPage() {
       
       {/* Cream component fourth */}
       <MarketingServices
-        mainTitle="BRAND STRATEGY"
-        subTitle="Create an unforgettable brand identity"
+        mainTitle="Website Design  Development"
         backgroundColor="bg-[#E0D9CD]" 
         textColor="text-black"
         topBorderImage="/pattern.png"
@@ -220,12 +218,14 @@ export default function ServicesPage() {
       
       {/* Black component fifth - no borders */}
       <MarketingServices
-        mainTitle="DIGITAL ADVERTISING"
-        subTitle="Targeted campaigns that drive results"
+        mainTitle="Video Production"
+        
         backgroundColor="bg-black" 
         textColor="text-white"
         services={advertisingServices}
       />
+
+      <Footer  topBorderImage="/pattern.png" />
     
     </main>
   );

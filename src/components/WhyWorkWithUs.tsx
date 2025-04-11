@@ -92,9 +92,8 @@ const WhyWorkWithUs: React.FC<WhyWorkWithUsProps> = ({
         {/* Description */}
         <motion.div variants={revealVariants} className="mb-12">
           <p className="text-center text-stone-600 max-w-3xl mx-auto leading-relaxed">
-            We go beyond traditional marketing by leveraging predictive analytics, machine learning, and intelligent
-            automation to outmaneuver the competition. Our AI-driven approach optimizes campaigns in real time, delivering
-            hyper-personalized messaging, laser-precise targeting, and data-backed decisions that maximize impact.
+
+          We go beyond traditional marketing by leveraging predictive analytics, machine learning, and intelligent automation to outmaneuver the competition. Our AI-driven approach optimizes campaigns in real time, delivering hyper-personalized messaging, laser-precise targeting, and data-backed decisions that maximize impact.
           </p>
         </motion.div>
 
