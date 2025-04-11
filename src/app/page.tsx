@@ -1,7 +1,7 @@
 "use client"
 import { useState, useRef } from "react";
 import Companies from "@/components/Companies";
-import Footer from "@/components/Footer";
+
 import HeroSection from "@/components/Hero";
 import OurApproach from "@/components/OurApproach";
 import RingCursor from "@/components/RingCursor";
@@ -98,7 +98,7 @@ bottomBorderImage="/pattern2.svg"
 />
 </section> */}
      
-      <Footer />
+      
     </>
   );
 }
