@@ -130,7 +130,7 @@ const Navbar: React.FC = () => {
       initial={{ y: 0 }}
       animate={{ y: showNavbar ? 0 : -100 }}
       transition={{ duration: 0.4 }}
-      className={`fixed top-0 left-0 right-0 w-full p-10 z-50 ${textColor} p-4 
+      className={`fixed top-0 left-0 right-0  w-full p-10 z-50 ${textColor} p-4 
         ${isScrolledUp ? 'bg-transparent' : 'bg-transparent'}`}
     >
       <div className="container mx-auto flex justify-between items-center">
@@ -171,7 +171,7 @@ const Navbar: React.FC = () => {
               href={link.path}
               hoverText={link.hoverText}
               textColor={textColor}
-              className={`text-lg  ${isActive(link.path) ? textColor : textColor}`}
+              className={`text-lg ml-10  ${isActive(link.path) ? textColor : textColor}`}
             >
               {link.label}
             </NavLink>

@@ -25,6 +25,19 @@ export default function Home() {
         <HeroSection />
       </section>
 
+      <section id="video-section" className="relative w-full h-screen bg-black overflow-hidden">
+        <video 
+          className="absolute inset-0 w-full h-full object-cover opacity-50"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="/videos/v2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </section>
+
       <section id="2">
         <WhyWorkWithUs
           topBorderImage="/pattern.svg"
