@@ -67,7 +67,7 @@ const MarketingServices: React.FC<MarketingServicesProps> = ({
   };
 
   return (
-    <section className={`relative w-full ${backgroundColor} pt-20 md:pt-0`}>
+    <section className={`relative  w-full ${backgroundColor}`}>
       {/* Top Border Image (if provided) */}
       {topBorderImage && (
         <MotionDiv
@@ -87,16 +87,20 @@ const MarketingServices: React.FC<MarketingServicesProps> = ({
       )}
 
       {/* Content */}
-      <div className={`w-full py-10 md:py-16 px-4 sm:px-6 md:px-12 lg:px-20 relative z-20 max-w-7xl mx-auto ${backgroundColor}`}>
+      <div className={`w-full relative z-20 max-w-7xl mx-auto ${backgroundColor} ${
+        backgroundColor === 'bg-black' 
+          ? 'py-4 md:py-8 px-4 sm:px-6 md:px-12 lg:px-20' 
+          : 'py-10 md:py-16 px-4 sm:px-6 md:px-12 lg:px-20'
+      }`}>
         {/* Main Title */}
         <motion.div
           variants={titleVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="mb-8 md:mb-16 mt-16 md:mt-20"
+          className="mb-8 md:mb-16"
         >
-          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight ${textColor}`}>
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight ${textColor} font-peckham`}>
             {mainTitle}
           </h2>
           
@@ -135,7 +139,7 @@ const MarketingServices: React.FC<MarketingServicesProps> = ({
               </div>
               
               {/* Service Title */}
-              <h3 className={`text-xl font-bold mb-3 uppercase tracking-wide ${textColor}`}>
+              <h3 className={`text-xl mb-3 uppercase tracking-wide ${textColor}`}>
                 {service.title}
               </h3>
               
