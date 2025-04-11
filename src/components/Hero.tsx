@@ -33,12 +33,8 @@ const HeroSection: React.FC = () => {
         {/* Logo */}
         <div className="mt-8 md:mt-16 mb-12 md:mb-16 flex justify-center items-center">
           <h1
-            className="text-[10vw] md:text-[8vw] mt-20 font-bold text-[#E0D9CD] tracking-wider text-center w-full px-2 md:px-4"
-            style={{
-              fontFamily: "peckham",
-              filter: "drop-shadow(2px 2px 0px rgba(0,0,0,0.2))",
-              textShadow: "2px 2px 0px rgba(0,0,0,0.5)",
-            }}
+            className="text-[10vw] md:text-[10vw] mt-20  text-[#E0D9CD] tracking-wider text-center w-full px-2 md:px-4"
+            
           >
             NUVORAA
           </h1>

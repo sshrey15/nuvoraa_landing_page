@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -15,6 +15,8 @@ const WhyWorkWithUs: React.FC<WhyWorkWithUsProps> = ({
   topBorderImage,
   bottomBorderImage,
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   const revealVariants = {
     hidden: { opacity: 0, y: 40 },
     visible: {
@@ -63,23 +65,23 @@ const WhyWorkWithUs: React.FC<WhyWorkWithUsProps> = ({
         viewport={{ once: true, amount: 0.5 }}
         className="w-full bg-[#E0D9CD] py-16 px-6 md:px-12 lg:px-20 relative z-20 max-w-5xl mx-auto"
       >
-        {/* Section Label */}
-        <motion.h3
-          variants={revealVariants}
-          className="text-center text-black text-xl mb-20"
+          {/* Section Label */}
+          <p
+            
+            className="text-center text-black text-xl  font-medium mb-20 font-peckham"
+            style={{
+              textShadow: '1px 1px 0px rgba(0,0,0,0.1)',
+              letterSpacing: '0.02em',
+            }}
         >
           (Why Work with us?)
-        </motion.h3>
-
+        </p>
+    
         {/* Bold Statement */}
         <motion.div variants={revealVariants} className="mb-10">
           <h2
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-center tracking-tight leading-tight"
-            style={{
-              fontFamily: 'peckham',
-              textShadow: '1px 1px 0px rgba(0,0,0,0.2)',
-              letterSpacing: '-0.02em',
-            }}
+            className="text-4xl md:text-5xl lg:text-6xl  text-center tracking-tight leading-tight"
+            
           >
             WE DONT COMPETE
             <br />
@@ -96,12 +98,23 @@ const WhyWorkWithUs: React.FC<WhyWorkWithUsProps> = ({
           </p>
         </motion.div>
 
-        {/* CTA */}
-        <motion.div variants={revealVariants} className="text-center">
+        {/* CTA with animated underline */}
+        <motion.div 
+          variants={revealVariants} 
+          className="text-center"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <Link href="/story">
-            <span className="inline-block border-b-2 border-black pb-1 text-lg  transition-colors cursor-pointer">
-              Read Our Story
-            </span>
+            <motion.div className="relative inline-block text-lg pb-1">
+              <span>Read Our Story</span>
+              <motion.div
+                className="absolute bottom-0 left-0 h-0.5 bg-black"
+                initial={{ width: "100%" }}
+                animate={{ width: isHovered ? "30%" : "100%" }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              />
+            </motion.div>
           </Link>
         </motion.div>
       </motion.div>

@@ -2,7 +2,7 @@
 
 @tailwind base;
 @tailwind components;
-@taiilwind utilities;
+@tailwind utilities;  /* Fixed typo from 'taiilwind' */
 
 
 @layer base {
@@ -12,8 +12,23 @@
     font-weight: normal;
     font-style: normal;
   }
+  
+  @font-face {
+    font-family: 'opensaucefont';
+    src: url('/fonts/opensaucefont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Apply fonts globally */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'peckham', sans-serif;
+  }
+  
+  body, p, a, li, span, div {
+    font-family: 'opensaucefont', sans-serif;
+  }
 }
-
 
 @keyframes slide {
   from {

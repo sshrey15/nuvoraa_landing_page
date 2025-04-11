@@ -15,7 +15,7 @@ const OurServices: React.FC = () => {
     <section className="w-full bg-black text-white py-8 md:py-16 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 md:px-6 mb-8 md:mb-16">
         {/* Title animation */}
-        <motion.h3
+        <motion.p
           className="text-center text-white text-lg md:text-xl mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -23,14 +23,14 @@ const OurServices: React.FC = () => {
           transition={{ duration: 0.6 }}
         >
           (Our Services)
-        </motion.h3>
+        </motion.p>
 
         <motion.h2 
           className="text-4xl sm:text-5xl md:text-6xl text-center font-black mb-6 md:mb-8 leading-tight"
-          style={{ 
+          style={{
             fontFamily: 'peckham',
-            textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
-            color: '#f0ebe3'
+            textShadow: '1px 1px 0px rgba(0,0,0,0.2)',
+            letterSpacing: '-0.02em',
           }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

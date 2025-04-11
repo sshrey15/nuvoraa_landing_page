@@ -93,12 +93,12 @@ const OurApproach: React.FC<OurApproachProps> = ({
         <motion.div variants={fadeInUp} className="w-full overflow-hidden md:w-1/2">
           <motion.h2 
             variants={fadeInUp}
-            className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 tracking-tight"
-
-            style={{ fontFamily: 'peckham' }}
+            className="text-3xl sm:text-4xl md:text-5xl  tracking-tight leading-tight mb-4  whitespace-pre-line"
+            
           >
             {title}
           </motion.h2>
+          
           <motion.p variants={fadeInUp} className="text-stone-600 mb-6">
             {description}
           </motion.p>
@@ -179,7 +179,7 @@ const OurApproach: React.FC<OurApproachProps> = ({
       <div className="w-full bg-[#E0D9CD] py-10 px-6 md:px-12 lg:px-20">
         <div className="max-w-6xl mx-auto">
           {/* Heading */}
-          <motion.h3
+          <motion.p
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
@@ -187,7 +187,7 @@ const OurApproach: React.FC<OurApproachProps> = ({
             className="text-center text-black text-xl mb-20"
           >
             (Our Expertise)
-          </motion.h3>
+          </motion.p>
           
           {/* Render all sections with alternating layout */}
           {sections.map((section, index) => (

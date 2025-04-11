@@ -130,15 +130,15 @@ const Navbar: React.FC = () => {
       initial={{ y: 0 }}
       animate={{ y: showNavbar ? 0 : -100 }}
       transition={{ duration: 0.4 }}
-      className={`fixed top-0 left-0 right-0  w-full p-10 z-50 ${textColor} p-4 
+      className={`fixed top-6 left-0 right-0 w-full p-10 z-50 ${textColor} p-4 
         ${isScrolledUp ? 'bg-transparent' : 'bg-transparent'}`}
     >
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <NavLink href="/" textColor={textColor}>
-          <span className={`text-2xl ${textColor === 'text-black' ? 'text-black' : 'text-[#E0D9CD]'} font-bold`} style={{ fontFamily: 'peckham' }}>
+          <h1 className={`text-2xl ${textColor === 'text-black' ? 'text-black' : 'text-[#E0D9CD]'} `} >
             NUVORAA
-          </span>
+          </h1>
         </NavLink>
 
         {/* Hamburger Button */}

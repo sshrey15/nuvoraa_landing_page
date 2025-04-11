@@ -8,7 +8,8 @@ module.exports = {
     theme: {
       extend: {
         fontFamily: {
-          peckham: ['peckham', 'sans-serif']
+          peckham: ['peckham', 'sans-serif'],
+          opensauce: ['opensaucefont', 'sans-serif'],
         }
       },
     },

@@ -7,11 +7,8 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto flex flex-col items-center justify-center text-center mb-24">
         <p className="text-sm mb-20">(Contact us)</p>
         <h2
-          className="text-3xl sm:text-4xl md:text-6xl font-black mb-4"
-          style={{
-            fontFamily: 'Peckham',
-            textShadow: '1px 1px 0 rgba(0,0,0,0.3)',
-          }}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl  tracking-tight leading-tight text-center "
+        
         >
           SEE <br className="hidden sm:block" /> WHAT <br className="hidden sm:block" /> GROWTH <br className="hidden sm:block" /> MEANS
         </h2>
